@@ -1,10 +1,21 @@
 const grid = document.querySelector(".grid");
 const newGrid = document.querySelector(".new-grid");
-let numGrid;
+let numGrid = 64;
 let input;
 
+let cell;
+
+for (let i = 0; i < numGrid * numGrid; i++) {
+  cell = document.createElement("div");
+  cell.classList.add("cell");
+  grid.appendChild(cell);
+  cell.style.width = (100 / numGrid) + "%";
+  cell.style.height = (100 / numGrid) + "%";
+  
+}
+
 newGrid.addEventListener("click", () => {
-    
+    grid.innerHTML = "";
 
     do {
         input = prompt("How many rows?");
@@ -17,12 +28,13 @@ newGrid.addEventListener("click", () => {
     } while (isNaN(numGrid));
 
     console.log("Počet riadkov:", numGrid);
+    for (let i = 0; i < numGrid * numGrid; i++) {
+        cell = document.createElement("div");
+        cell.classList.add("cell");
+        grid.appendChild(cell);
+        cell.style.width = (100 / numGrid) + "%";
+        cell.style.height = (100 / numGrid) + "%";
+        
+      }
 });
 
-console.log(numGrid);
-
-for (let i = 0; i < 16 * 16; i++) {
-  const cell = document.createElement("div");
-  cell.classList.add("cell");
-  grid.appendChild(cell);
-}

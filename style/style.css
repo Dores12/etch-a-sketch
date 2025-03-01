@@ -31,8 +31,8 @@ button {
 }
 
 .cell {
-    width: calc(100% / 16);
-    height: calc(100% / 16);
+    width: calc(100% / 64);
+    height: calc(100% / 64);
     border: 1px solid gray;
     box-sizing: border-box;
   }
