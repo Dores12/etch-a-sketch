@@ -45,3 +45,8 @@ newGrid.addEventListener("click", () => {
     createGrid(numGrid);
 });
 
+resetButton.addEventListener("click", () => {
+    gridChild.forEach(child => {
+        child.classList.remove("hovered");
+})
+})
