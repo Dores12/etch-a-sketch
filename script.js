@@ -37,8 +37,8 @@ createGrid(numGrid);
 newGrid.addEventListener("click", () => {
 
     do {
-        input = prompt("How many rows?");
-        if (input === null) return; 
+        input = prompt("How many rows? Max 100");
+        if (input === null || input > 100) return; 
 
         input = input.trim(); 
         if (input === "") continue; 
