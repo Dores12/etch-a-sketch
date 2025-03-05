@@ -7,6 +7,10 @@ let input;
 
 let cell;
 
+function getRandomColor() {
+    return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
+
 function createGrid(numGrid) {
     grid.innerHTML = "";
 
@@ -21,7 +25,7 @@ function createGrid(numGrid) {
 
       gridChild.forEach(child => {
         child.addEventListener("mouseover", () => {
-            child.classList.add("hovered");
+            child.style.backgroundColor = getRandomColor();
         })
       });
     
@@ -47,6 +51,6 @@ newGrid.addEventListener("click", () => {
 
 resetButton.addEventListener("click", () => {
     gridChild.forEach(child => {
-        child.classList.remove("hovered");
+        child.style.backgroundColor = "#BFD7EA";
 })
 })
