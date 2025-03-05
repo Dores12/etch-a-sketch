@@ -1,21 +1,36 @@
 const grid = document.querySelector(".grid");
+let gridChild;
 const newGrid = document.querySelector(".new-grid");
-let numGrid = 64;
+const resetButton = document.querySelector(".reset");
+let numGrid = 16;
 let input;
 
 let cell;
 
-for (let i = 0; i < numGrid * numGrid; i++) {
-  cell = document.createElement("div");
-  cell.classList.add("cell");
-  grid.appendChild(cell);
-  cell.style.width = (100 / numGrid) + "%";
-  cell.style.height = (100 / numGrid) + "%";
-  
+function createGrid(numGrid) {
+    grid.innerHTML = "";
+
+    for (let i = 0; i < numGrid * numGrid; i++) {
+        cell = document.createElement("div");
+        cell.classList.add("cell");
+        grid.appendChild(cell);
+        cell.style.width = (100 / numGrid) + "%";
+        cell.style.height = (100 / numGrid) + "%";
+        gridChild = document.querySelectorAll(".cell"); 
+      }
+
+      gridChild.forEach(child => {
+        child.addEventListener("mouseover", () => {
+            child.classList.add("hovered");
+        })
+      });
+    
 }
 
+
+createGrid(numGrid);
+
 newGrid.addEventListener("click", () => {
-    grid.innerHTML = "";
 
     do {
         input = prompt("How many rows?");
@@ -27,14 +42,6 @@ newGrid.addEventListener("click", () => {
         numGrid = Number(input); 
     } while (isNaN(numGrid));
 
-    console.log("Počet riadkov:", numGrid);
-    for (let i = 0; i < numGrid * numGrid; i++) {
-        cell = document.createElement("div");
-        cell.classList.add("cell");
-        grid.appendChild(cell);
-        cell.style.width = (100 / numGrid) + "%";
-        cell.style.height = (100 / numGrid) + "%";
-        
-      }
+    createGrid(numGrid);
 });
 
